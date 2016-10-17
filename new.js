@@ -20,6 +20,7 @@ $(document).ready(function(){
 	document.getElementById('first-p').innerHTML = 'one player';
 	document.getElementById('second-p').innerHTML ='two player';
 });
+
 function overFirstP(){
 	document.getElementById('first-p').className='four';
 	playerSign='X';
@@ -100,8 +101,8 @@ function resetGame(){
 	document.getElementById('eight').innerHTML="";
 	document.getElementById('nine').innerHTML=""; }
 	else{
-	 document.getElementById("xturn").innerHTML ="Computer";
-	 document.getElementById('one').innerHTML="";
+	document.getElementById("xturn").innerHTML ="Computer";
+	document.getElementById('one').innerHTML="";
 	document.getElementById('two').innerHTML="";
 	document.getElementById('three').innerHTML="";
 	document.getElementById('four').innerHTML="";
@@ -112,7 +113,8 @@ function resetGame(){
 	document.getElementById('nine').innerHTML="";	
 	document.getElementById('five').innerHTML = playercomputer;
 	document.getElementById('xturn').innerHTML='Your turn';
-} clearInterval(win2);}
+} clearInterval(win2);
+clearInterval(watch);}
 	
 function resetGameTwoPlayers(){
 	 var winnerplayer = document.getElementById("xturn").innerHTML;
@@ -260,7 +262,7 @@ for(var c =1; c <=1; c++){
 	pp.id="xturn";
 	pp.className ="box-reset";
 	pp.innerHTML ="Reset";
-	pp.onclick= resetGame;
+	pp.onclick=resetGame;
 	newp.appendChild(newrow);
 	newrow.appendChild(newdivmove);
 	newdivmove.appendChild(pp);
@@ -1050,8 +1052,7 @@ else{
 		     xpoints++;
 		  document.getElementById("point1").innerHTML = xpoints;
 		  win2 = setInterval(function(){resetGame();},2000);}
-		else{
-			itDraw();
+		else{itDraw();
 			if(draw === true){
 			document.getElementById("xturn").innerHTML='Computer'; }		
   }}}}}}}}}
@@ -1075,9 +1076,8 @@ else{
 	if(ele.innerHTML===''){
 		ele = playerSign;
 	document.getElementById('one').innerHTML = ele;
-	 validateScoreX(); }
-	 if(draw===true){
-		 watch = setInterval(function(){validateComputerClick();},1000);} 
+	 validateScoreX(); 
+	 watch = setInterval(function(){validateComputerClick();},1000);}  
  } else{} }}}
  
   function clicktwo(){
@@ -1104,8 +1104,7 @@ else{
 	if(ele.innerHTML===''){
 		ele = playerSign;
 	document.getElementById('two').innerHTML = ele;
-	 validateScoreX(); }
-	 if(draw===true){
+	 validateScoreX();
 	 watch = setInterval(function(){validateComputerClick();},1000);}
   } else{} }}}
  
@@ -1129,8 +1128,7 @@ else{
 	if(ele.innerHTML===''){
 		ele = playerSign;
 	document.getElementById('three').innerHTML = ele;
-	 validateScoreX(); }
-	 if(draw===true){
+	 validateScoreX(); 
 	 watch = setInterval(function(){validateComputerClick();},1000);}
  } else{} }}}
  
@@ -1155,8 +1153,7 @@ else{
 	if(ele.innerHTML===''){
 		ele = playerSign;
 	document.getElementById('four').innerHTML = ele;
-	 validateScoreX(); }
-	 if(draw===true){
+	 validateScoreX();
 	 watch = setInterval(function(){validateComputerClick();},1000);}
   } else{} }} }
  	 
@@ -1180,8 +1177,7 @@ else{
 	if(ele.innerHTML===''){
 		ele = playerSign;
 	document.getElementById('five').innerHTML = ele;
-	 validateScoreX(); }
-	 if(draw===true){
+	 validateScoreX();
 	watch = setInterval(function(){validateComputerClick();},1000);}
  } else{} }}}
  
@@ -1205,8 +1201,7 @@ else{
 	if(ele.innerHTML===''){
 		ele = playerSign;
 	document.getElementById('six').innerHTML = ele;
-	 validateScoreX(); }
-	 if(draw===true){
+	 validateScoreX(); 
 	watch = setInterval(function(){validateComputerClick();},1000);}
   } else{} } }}
 
@@ -1231,8 +1226,7 @@ else{
 	if(ele.innerHTML===''){
 		ele = playerSign;
 	document.getElementById('seven').innerHTML = ele;
-	 validateScoreX(); }
-	 if(draw===true){
+	 validateScoreX();
 	 watch = setInterval(function(){validateComputerClick();},1000);}
   } else{} }}}
 	
@@ -1256,8 +1250,7 @@ else{
 	if(ele.innerHTML===''){
 		ele = playerSign;
 	document.getElementById('eight').innerHTML = ele;
-	 validateScoreX(); }
-	 if(draw===true){
+	 validateScoreX();
 	  watch = setInterval(function(){validateComputerClick();},1000);}
   } else{} }}}
 	 
@@ -1281,7 +1274,6 @@ else{
 	if(ele.innerHTML===''){
 		ele = playerSign;
 	document.getElementById('nine').innerHTML = ele;
-	 validateScoreX(); }
-	 if(draw===true){
+	validateScoreX();
 	 watch = setInterval(function(){validateComputerClick();},1000);}
   } else{} }}}
