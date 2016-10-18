@@ -21,6 +21,16 @@ $(document).ready(function(){
 	document.getElementById('second-p').innerHTML ='two player';
 });
 
+function displayvalue(){
+	var str ='';
+	var elem = document.getElementsByTagName("p");
+	for(var t = 0; t < elem.length; t++){
+	if(elem[t].className ==="winner"){
+		elem[t].className="x";}
+		else{}
+	}
+}
+
 function overFirstP(){
 	document.getElementById('first-p').className='four';
 	playerSign='X';
@@ -114,11 +124,10 @@ function resetGame(){
 	document.getElementById('five').innerHTML = playercomputer;
 	document.getElementById('xturn').innerHTML='Your turn';
 } clearInterval(win2);
-clearInterval(watch);}
+clearInterval(watch);
+displayvalue();}
 	
 function resetGameTwoPlayers(){
-	 var winnerplayer = document.getElementById("xturn").innerHTML;
-	if(winnerplayer ==="Second P won"){
 	document.getElementById("xturn").innerHTML="First Player";
 	document.getElementById('one').innerHTML="";
 	document.getElementById('two').innerHTML="";
@@ -129,22 +138,10 @@ function resetGameTwoPlayers(){
 	document.getElementById('seven').innerHTML="";
 	document.getElementById('eight').innerHTML="";
 	document.getElementById('nine').innerHTML=""; 
-	 firstPlayerTurn ="X";
-    secondPlayerTurn ="O"; }
-	else{	
-	document.getElementById("xturn").innerHTML ="Second Player";
-	document.getElementById('one').innerHTML="";
-	document.getElementById('two').innerHTML="";
-	document.getElementById('three').innerHTML="";
-	document.getElementById('four').innerHTML="";
-	document.getElementById('five').innerHTML="";
-	document.getElementById('six').innerHTML="";
-	document.getElementById('seven').innerHTML="";
-	document.getElementById('eight').innerHTML="";
-	document.getElementById('nine').innerHTML="";
-	firstPlayerTurn ="X"; 
-	secondPlayerTurn ="O"; }
+	firstPlayerTurn ="X";
+    secondPlayerTurn ="O";
 	clearInterval(secondplayerwatch);
+	displayvalue();
 	}
 
 function firsttwoPlayers(){
@@ -177,7 +174,7 @@ for(var x =1; x <=3; x++){
 	z +=1; }
 var br = document.createElement('br');
 ip.insertBefore(br, newdiv);
-i++; }headingtwoplayer(); twocreateReset(); createyou(); createPlayertwo(); createYouPoints(); createPcPoints(); yourPointNow();}
+i++; }headingtwoplayer(); twocreateReset(); createPone(); createPlayertwo(); createYouPoints(); createPcPoints(); yourPointNow();}
 
 function headingtwoplayer(){
   var newpp = document.getElementById("computer");
@@ -291,6 +288,15 @@ for(var c =1; c <=1; c++){
 	newyou.className ="box-points";
 	pyou.id="pointyou";
 	pyou.innerHTML ="You";
+	newyou.appendChild(pyou);} }
+	
+function createPone(){
+var newyou = document.getElementById("you");
+for(var c =1; c <=1; c++){
+	var pyou = document.createElement('p');
+	newyou.className ="box-points";
+	pyou.id="pointyou";
+	pyou.innerHTML ="P1";
 	newyou.appendChild(pyou);} }
 	
 function createPc(){
@@ -753,6 +759,9 @@ function createback(){
   function validateScoreO(){
 	if(document.getElementById('one').innerHTML === playercomputer && document.getElementById('two').innerHTML === playercomputer &&
 		document.getElementById('three').innerHTML === playercomputer){
+		document.getElementById('one').className ="winner";
+		document.getElementById('two').className ="winner";
+		document.getElementById('three').className ="winner";
 		document.getElementById("xturn").innerHTML='Computer Won'; 
 		pcpoints++;
 		document.getElementById("point2").innerHTML = pcpoints;
@@ -760,6 +769,9 @@ function createback(){
 		else{	
 	if(document.getElementById('one').innerHTML === playercomputer && document.getElementById('four').innerHTML === playercomputer &&
 		  document.getElementById('seven').innerHTML === playercomputer) {
+		  document.getElementById('one').className ="winner";
+		  document.getElementById('four').className ="winner";
+		  document.getElementById('seven').className ="winner";
 			  document.getElementById("xturn").innerHTML='Computer Won';
 			  pcpoints++;
 			  document.getElementById("point2").innerHTML = pcpoints;
@@ -767,6 +779,9 @@ function createback(){
 	else{	
 	if(document.getElementById('one').innerHTML === playercomputer && document.getElementById('five').innerHTML === playercomputer &&
 		  document.getElementById('nine').innerHTML === playercomputer){
+			  document.getElementById('one').className ="winner";
+		document.getElementById('five').className ="winner";
+		document.getElementById('nine').className ="winner";
 			  document.getElementById("xturn").innerHTML='Computer Won';
 			pcpoints++;
 			document.getElementById("point2").innerHTML = pcpoints;
@@ -774,6 +789,9 @@ function createback(){
    else{
    if(document.getElementById('three').innerHTML === playercomputer && document.getElementById('five').innerHTML === playercomputer &&
 		  document.getElementById('seven').innerHTML === playercomputer){
+			  document.getElementById('three').className ="winner";
+		document.getElementById('five').className ="winner";
+		document.getElementById('seven').className ="winner";
 			  document.getElementById("xturn").innerHTML='Computer Won';
 			  pcpoints++;
 			  document.getElementById("point2").innerHTML = pcpoints;
@@ -781,6 +799,9 @@ function createback(){
 	else{
 	if(document.getElementById('four').innerHTML === playercomputer && document.getElementById('five').innerHTML === playercomputer &&
 		  document.getElementById('six').innerHTML === playercomputer){
+			  document.getElementById('four').className ="winner";
+		document.getElementById('five').className ="winner";
+		document.getElementById('six').className ="winner";
 			  document.getElementById("xturn").innerHTML='Computer Won';
 			  pcpoints++;
 		  document.getElementById("point2").innerHTML = pcpoints;
@@ -788,6 +809,9 @@ function createback(){
 	else{
 	if(document.getElementById('two').innerHTML === playercomputer && document.getElementById('five').innerHTML === playercomputer &&
 		  document.getElementById('eight').innerHTML === playercomputer){
+			  document.getElementById('two').className ="winner";
+		document.getElementById('five').className ="winner";
+		document.getElementById('eight').className ="winner";
 			  document.getElementById("xturn").innerHTML='Computer Won';
 			  pcpoints++;
 		  document.getElementById("point2").innerHTML =pcpoints;
@@ -795,6 +819,9 @@ function createback(){
 			  else{	
 	if(document.getElementById('three').innerHTML === playercomputer && document.getElementById('six').innerHTML === playercomputer &&
 		  document.getElementById('nine').innerHTML === playercomputer){
+			  document.getElementById('three').className ="winner";
+		document.getElementById('six').className ="winner";
+		document.getElementById('nine').className ="winner";
 			  document.getElementById("xturn").innerHTML='Computer Won';
 			  clearInterval(watch);
 			  pcpoints++;
@@ -803,6 +830,9 @@ function createback(){
 else{	
 	if(document.getElementById('seven').innerHTML === playercomputer && document.getElementById('eight').innerHTML === playercomputer &&
 		  document.getElementById('nine').innerHTML === playercomputer){
+			  document.getElementById('seven').className ="winner";
+		document.getElementById('eight').className ="winner";
+		document.getElementById('nine').className ="winner";
 			  document.getElementById("xturn").innerHTML='Computer Won';
 			  pcpoints++;
 			  document.getElementById("point2").innerHTML = pcpoints;
@@ -816,6 +846,9 @@ else{
   function secondplayerTurnFunction(){
 	  if(document.getElementById('one').innerHTML === playercomputer && document.getElementById('two').innerHTML === playercomputer &&
 		document.getElementById('three').innerHTML === playercomputer){
+			document.getElementById('one').className ="winner";
+		document.getElementById('two').className ="winner";
+		document.getElementById('three').className ="winner";
 		document.getElementById("xturn").innerHTML="Second P won"; 
 		pcpoints++;
 		document.getElementById("point2").innerHTML = pcpoints;
@@ -823,6 +856,9 @@ else{
 		else{	
 	if(document.getElementById('one').innerHTML === playercomputer && document.getElementById('four').innerHTML === playercomputer &&
 		  document.getElementById('seven').innerHTML === playercomputer) {
+			  document.getElementById('one').className ="winner";
+		document.getElementById('four').className ="winner";
+		document.getElementById('seven').className ="winner";
 			  document.getElementById("xturn").innerHTML="Second P won";
 			  pcpoints++;
 			  document.getElementById("point2").innerHTML = pcpoints;
@@ -830,6 +866,9 @@ else{
 	else{	
 	if(document.getElementById('one').innerHTML === playercomputer && document.getElementById('five').innerHTML === playercomputer &&
 		  document.getElementById('nine').innerHTML === playercomputer){
+			  document.getElementById('one').className ="winner";
+		document.getElementById('five').className ="winner";
+		document.getElementById('nine').className ="winner";
 			  document.getElementById("xturn").innerHTML="Second P won";
 			pcpoints++;
 			document.getElementById("point2").innerHTML = pcpoints;
@@ -837,6 +876,9 @@ else{
    else{
    if(document.getElementById('three').innerHTML === playercomputer && document.getElementById('five').innerHTML === playercomputer &&
 		  document.getElementById('seven').innerHTML === playercomputer){
+			  document.getElementById('three').className ="winner";
+		document.getElementById('five').className ="winner";
+		document.getElementById('seven').className ="winner";
 			  document.getElementById("xturn").innerHTML="Second P won";
 			  pcpoints++;
 			  document.getElementById("point2").innerHTML = pcpoints; 
@@ -844,6 +886,9 @@ else{
 	else{
 	if(document.getElementById('four').innerHTML === playercomputer && document.getElementById('five').innerHTML === playercomputer &&
 		  document.getElementById('six').innerHTML === playercomputer){
+			  document.getElementById('four').className ="winner";
+		document.getElementById('five').className ="winner";
+		document.getElementById('six').className ="winner";
 			  document.getElementById("xturn").innerHTML="Second P won";
 			  pcpoints++;
 		  document.getElementById("point2").innerHTML = pcpoints; 
@@ -851,6 +896,9 @@ else{
 	else{
 	if(document.getElementById('two').innerHTML === playercomputer && document.getElementById('five').innerHTML === playercomputer &&
 		  document.getElementById('eight').innerHTML === playercomputer){
+			  document.getElementById('two').className ="winner";
+		document.getElementById('five').className ="winner";
+		document.getElementById('eight').className ="winner";
 			  document.getElementById("xturn").innerHTML="Second P won";
 			  clearInterval(watch);
 			  pcpoints++;
@@ -859,6 +907,9 @@ else{
 			  else{	
 	if(document.getElementById('three').innerHTML === playercomputer && document.getElementById('six').innerHTML === playercomputer &&
 		  document.getElementById('nine').innerHTML === playercomputer){
+			  document.getElementById('three').className ="winner";
+		document.getElementById('six').className ="winner";
+		document.getElementById('nine').className ="winner";
 			  document.getElementById("xturn").innerHTML="Second P won";
 			  clearInterval(watch);
 			  pcpoints++;
@@ -867,6 +918,9 @@ else{
 else{	
 	if(document.getElementById('seven').innerHTML === playercomputer && document.getElementById('eight').innerHTML === playercomputer &&
 		  document.getElementById('nine').innerHTML === playercomputer){
+			  document.getElementById('seven').className ="winner";
+		document.getElementById('eight').className ="winner";
+		document.getElementById('nine').className ="winner";
 			  document.getElementById("xturn").innerHTML="Second P won";
 			  pcpoints++;
 			  document.getElementById("point2").innerHTML = pcpoints; 
@@ -1087,17 +1141,13 @@ else{
 		 if(ele.innerHTML ===''){
 			 ele = firstPlayerTurn;
 			 document.getElementById('two').innerHTML =ele;
-			  firstplayerScoreFunction();
-			  number1++;
-			  takeinturnx.push(number1);}}
+			  firstplayerScoreFunction();}}
 	 else{
 		 if(whotoplay ==="Second Player"){
 			 if(ele.innerHTML ===''){
 			 ele = secondPlayerTurn;
 			 document.getElementById('two').innerHTML =ele;
-			 secondplayerTurnFunction();
-			 numbertwo++;
-			 takeinturno.push(numbertwo);}}
+			 secondplayerTurnFunction();}}
 	 else{
 	if(whotoplay ==="Your turn"){
 	var ele = document.getElementById('two');
